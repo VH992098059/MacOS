@@ -1,0 +1,136 @@
+root@solid-80JU:/home/solid# grep -i "model name" /proc/cpuinfo
+model name	: Intel(R) Core(TM) i5-5257U CPU @ 2.70GHz
+model name	: Intel(R) Core(TM) i5-5257U CPU @ 2.70GHz
+model name	: Intel(R) Core(TM) i5-5257U CPU @ 2.70GHz
+model name	: Intel(R) Core(TM) i5-5257U CPU @ 2.70GHz
+root@solid-80JU:/home/solid# lspci | grep -i --color "vga\|3d\|2d"
+00:02.0 VGA compatible controller: Intel Corporation Iris Graphics 6100 (rev 09)
+root@solid-80JU:/home/solid# dmidecode -t baseboard
+# dmidecode 3.4
+Getting SMBIOS data from sysfs.
+SMBIOS 2.7 present.
+
+Handle 0x0002, DMI type 2, 15 bytes
+Base Board Information
+	Manufacturer: LENOVO
+	Product Name: Lenovo S41-70
+	Version: 31900060 WIN
+	Serial Number: R90H2HES
+	Asset Tag: No Asset Tag
+	Features:
+		Board is a hosting board
+		Board is replaceable
+	Location In Chassis: Part Component
+	Chassis Handle: 0x0000
+	Type: Motherboard
+	Contained Object Handles: 0
+
+Handle 0x0027, DMI type 10, 6 bytes
+On Board Device Information
+	Type: Video
+	Status: Enabled
+	Description: Intel(R) Extreme Graphics 3 Controller
+
+Handle 0x0028, DMI type 10, 6 bytes
+On Board Device Information
+	Type: Sound
+	Status: Enabled
+	Description: Intel(R) Azalia Audio Device
+
+root@solid-80JU:/home/solid# dmesg | grep -i input
+[    0.718474] input: Lid Switch as /devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0D:00/input/input0
+[    0.718595] input: Sleep Button as /devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0E:00/input/input1
+[    0.718699] input: Power Button as /devices/LNXSYSTM:00/LNXPWRBN:00/input/input2
+[    0.751094] input: AT Translated Set 2 keyboard as /devices/platform/i8042/serio0/input/input3
+[    2.488944] input: AlpsPS/2 ALPS GlidePoint as /devices/platform/i8042/serio1/input/input5
+[   21.450353] input: Ideapad extra buttons as /devices/pci0000:00/0000:00:1f.0/PNP0C09:00/VPC2004:00/input/input6
+[   26.390049] input: Video Bus as /devices/LNXSYSTM:00/LNXSYBUS:00/PNP0A08:00/LNXVIDEO:00/input/input7
+[   28.012839] input: Lenovo EasyCamera: Lenovo EasyC as /devices/pci0000:00/0000:00:14.0/usb2/2-4/2-4:1.0/input/input8
+[   28.140387] input: HDA Intel HDMI HDMI/DP,pcm=3 as /devices/pci0000:00/0000:00:03.0/sound/card0/input9
+[   28.140496] input: HDA Intel HDMI HDMI/DP,pcm=7 as /devices/pci0000:00/0000:00:03.0/sound/card0/input10
+[   28.140579] input: HDA Intel HDMI HDMI/DP,pcm=8 as /devices/pci0000:00/0000:00:03.0/sound/card0/input11
+[   28.171399] snd_hda_codec_realtek hdaudioC1D0:    inputs:
+[   28.262776] input: HDA Intel PCH Headset Mic as /devices/pci0000:00/0000:00:1b.0/sound/card1/input12
+[   28.262859] input: HDA Intel PCH Front Headphone as /devices/pci0000:00/0000:00:1b.0/sound/card1/input13
+[   65.289434] rfkill: input handler disabled
+[  113.127021] rfkill: input handler enabled
+[  123.035941] rfkill: input handler disabled
+[  506.571788] input: YICHIP Wireless Device as /devices/pci0000:00/0000:00:14.0/usb2/2-1/2-1:1.0/0003:3151:3020.0001/input/input14
+[  506.631310] hid-generic 0003:3151:3020.0001: input,hidraw0: USB HID v2.00 Keyboard [YICHIP Wireless Device] on usb-0000:00:14.0-1/input0
+[  506.631636] input: YICHIP Wireless Device Mouse as /devices/pci0000:00/0000:00:14.0/usb2/2-1/2-1:1.1/0003:3151:3020.0002/input/input15
+[  506.631778] input: YICHIP Wireless Device System Control as /devices/pci0000:00/0000:00:14.0/usb2/2-1/2-1:1.1/0003:3151:3020.0002/input/input16
+[  506.695080] input: YICHIP Wireless Device Consumer Control as /devices/pci0000:00/0000:00:14.0/usb2/2-1/2-1:1.1/0003:3151:3020.0002/input/input17
+[  506.695264] hid-generic 0003:3151:3020.0002: input,hiddev0,hidraw1: USB HID v2.00 Mouse [YICHIP Wireless Device] on usb-0000:00:14.0-1/input1
+root@solid-80JU:/home/solid# aplay -l
+**** PLAYBACK 硬體裝置清單 ****
+card 0: HDMI [HDA Intel HDMI], device 3: HDMI 0 [HDMI 0]
+  子设备: 1/1
+  子设备 #0: subdevice #0
+card 0: HDMI [HDA Intel HDMI], device 7: HDMI 1 [HDMI 1]
+  子设备: 1/1
+  子设备 #0: subdevice #0
+card 0: HDMI [HDA Intel HDMI], device 8: HDMI 2 [HDMI 2]
+  子设备: 1/1
+  子设备 #0: subdevice #0
+card 1: PCH [HDA Intel PCH], device 0: ALC233 Analog [ALC233 Analog]
+  子设备: 0/1
+  子设备 #0: subdevice #0
+root@solid-80JU:/home/solid# lshw -class network
+  *-network                 
+       description: Wireless interface
+       product: Wireless 3160
+       vendor: Intel Corporation
+       physical id: 0
+       bus info: pci@0000:02:00.0
+       logical name: wlp2s0
+       version: 93
+       serial: b4:6d:83:12:f3:d1
+       width: 64 bits
+       clock: 33MHz
+       capabilities: pm msi pciexpress bus_master cap_list ethernet physical wireless
+       configuration: broadcast=yes driver=iwlwifi driverversion=6.2.0-20-generic firmware=17.3216344376.0 3160-17.ucode ip=192.168.31.152 latency=0 link=yes multicast=yes wireless=IEEE 802.11
+       resources: irq:48 memory:c1100000-c1101fff
+  *-network
+       description: Ethernet interface
+       product: RTL8111/8168/8411 PCI Express Gigabit Ethernet Controller
+       vendor: Realtek Semiconductor Co., Ltd.
+       physical id: 0
+       bus info: pci@0000:03:00.0
+       logical name: enp3s0
+       version: 10
+       serial: 54:ee:75:67:a3:62
+       capacity: 1Gbit/s
+       width: 64 bits
+       clock: 33MHz
+       capabilities: pm msi pciexpress msix vpd bus_master cap_list ethernet physical tp mii 10bt 10bt-fd 100bt 100bt-fd 1000bt-fd autonegotiation
+       configuration: autonegotiation=on broadcast=yes driver=r8169 driverversion=6.2.0-20-generic firmware=rtl8168g-3_0.0.1 04/23/13 latency=0 link=no multicast=yes port=twisted pair
+       resources: irq:19 ioport:3000(size=256) memory:c1004000-c1004fff memory:c1000000-c1003fff
+root@solid-80JU:/home/solid# lshw -class disk -class storage
+  *-sata                    
+       description: SATA controller
+       product: Wildcat Point-LP SATA Controller [AHCI Mode]
+       vendor: Intel Corporation
+       physical id: 1f.2
+       bus info: pci@0000:00:1f.2
+       logical name: scsi0
+       version: 03
+       width: 32 bits
+       clock: 66MHz
+       capabilities: sata msi pm ahci_1.0 bus_master cap_list emulated
+       configuration: driver=ahci latency=0
+       resources: irq:46 ioport:4088(size=8) ioport:4094(size=4) ioport:4080(size=8) ioport:4090(size=4) ioport:4060(size=32) memory:c121c000-c121c7ff
+     *-disk
+          description: ATA Disk
+          product: TOSHIBA MQ01ACF0
+          vendor: Toshiba
+          physical id: 0.0.0
+          bus info: scsi@0:0.0.0
+          logical name: /dev/sda
+          version: 2E
+          serial: X47BCKVPT
+          size: 465GiB (500GB)
+          capabilities: gpt-1.00 partitioned partitioned:gpt
+          configuration: ansiversion=5 guid=37888010-0cd6-3747-a40d-5e92ce742c33 logicalsectorsize=512 sectorsize=4096
+root@solid-80JU:/home/solid# 
+
+
